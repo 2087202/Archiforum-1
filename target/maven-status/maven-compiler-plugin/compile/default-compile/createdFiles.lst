@@ -1,0 +1,4 @@
+sample\web\ui\SampleWebUiApplication.class
+sample\web\ui\MessageRepository.class
+sample\web\ui\mvc\MessageController.class
+sample\web\ui\Message.class

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+        <body>
+            <div th:replace="fragments/header :: header"></div>
+                <div class="container" style="margin-top: 35px">
+                    <div class="page-header page-heading">
+                        <h1 class="pull-left">Boards</h1>
+                        <div class="clearfix"></div>
+                    </div>
+                    <p class="lead">Welcome to ArchiForum!</p>
+                    <table class="table forum table-striped">
+                        <div th:each="board : ${boards}">
+                            <thead>
+                            <tr>
+                                <th>
+                                    <h3 th:text="${board.BoardCategory}">Board Name</h3>
+                                </th>
+                                <th class="cell-stat text-center hidden-xs hidden-sm">Threads</th>
+                                <th class="cell-stat text-center hidden-xs hidden-sm">Posts</th>
+                                <th class="cell-stat-2x hidden-xs hidden-sm">Last Post</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:if="${boards.empty}">
+                                <td colspan="3">No board created yet!</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4><a href="board" th:href="@{'/thread/' + ${board.name}}" th:text="${board.name}" >board name</a><br><small th:text="${board.Description}">Some description</small></br></h4>
+                                </td>
+                                <td class="text-center hidden-xs hidden-sm"><a th:text="${board.NumberOfThreads}" href="#">9 542</a></td>
+                                <td class="text-center hidden-xs hidden-sm"><a href="#">89 897</a></td>
+                                <td class="hidden-xs hidden-sm">by <a href="#">John Doe</a><br><small><i class="fa fa-clock-o"></i> 3 months ago</small></br></td>
+                            </tr>
+                            </tbody>
+                        </div>
+                    </table>
+                </div>
+        </body>
+    <div th:replace="fragments/footer :: footer"></div>
+</html>
